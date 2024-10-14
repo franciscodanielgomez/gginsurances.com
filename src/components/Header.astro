@@ -5,79 +5,122 @@ import {Button} from 'free-astro-components'
 ---
 
 <header class="fixed inset-x-0 top-0 bg-neutral-100/60 text-neutral-700 py-4 border-b border-neutral-300/50 backdrop-blur-md z-20">
-    <div class="container mx-auto px-4 flex justify-between items-center">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+        <!-- Logo alineado a la izquierda -->
         <div class="flex-shrink-0">
-            <a
-                    href="/"
-                    aria-label="GG Insurances"
-                    class="block"
-            >
-                <img src="/logo.png" alt="GG Insurances" class="h-auto w-auto max-h-4 object-contain"/>
+            <a href="/" aria-label="GG Insurances" class="block">
+                <img src="/logo.png" alt="GG Insurances" class="h-auto w-auto max-h-4 object-contain" />
             </a>
         </div>
 
-        <nav class="flex-grow flex justify-end">
-            <ul class="flex items-center gap-4 lg:gap-8">
+        <!-- Nav enlaces centrados -->
+        <nav class="flex-grow flex justify-center">
+            <ul class="hidden lg:flex items-center gap-8">
                 <li>
-                    <a class="text-sm hover:text-primary transition duration-300 ease-in-out" href="#servicios">Servicios</a>
+                    <a class="hover:text-primary transition duration-300 ease-in-out nav-link" href="#servicios">Servicios</a>
                 </li>
-                <li class="hidden lg:block">
-                    <a class="text-sm hover:text-primary transition duration-300 ease-in-out" href="#about">Nosotros</a>
-                </li>
-                <li class="hidden lg:block">
-                    <a class="text-sm hover:text-primary transition duration-300 ease-in-out" href="#testimonials">Testimonios</a>
-                </li>
-                <li class="hidden lg:block">
-                    <a class="text-sm hover:text-primary transition duration-300 ease-in-out" href="#faq">Preguntas
-                        Frecuentes</a>
-                </li>
-                <li class="hidden lg:block">
-                    <a href="#contacto">
-                        <Button label='Contacto' class='custom-button'/>
-
-                        <style>
-                            /* Example of custom button styles */
-                            .custom-button {
-                                --ac-btn-border-radius: 999px;
-                                --ac-btn-font-weight: 600;
-                                border-width: 0;
-                                background-image: linear-gradient(
-                                        90deg,
-                                        rgb(var(--ac-primary)) 0%,
-                                        rgb(var(--ac-secondary)) 100%
-                                );
-                            }
-                        </style>
-                    </a>
-                </li>
-
-
                 <li>
-                    <ThemeSwitch/>
+                    <a class=" hover:text-primary transition duration-300 ease-in-out nav-link" href="#about">Nosotros</a>
                 </li>
-
-                <li class="lg:hidden">
-                    <Hamburguer/>
+                <li>
+                    <a class="hover:text-primary transition duration-300 ease-in-out nav-link" href="#testimonials">Testimonios</a>
+                </li>
+                <li>
+                    <a class="hover:text-primary transition duration-300 ease-in-out nav-link" href="#faq">Preguntas Frecuentes</a>
+                </li>
+                <li>
+                    <a class=" hover:text-primary transition duration-300 ease-in-out nav-link" href="#contacto">Contacto</a>
                 </li>
             </ul>
         </nav>
+
+        <!-- Iconos a la derecha -->
+        <div class="flex items-center gap-4">
+            <div class="flex justify-center gap-4">
+                <a href="https://www.instagram.com/gginsurances/" target="_blank" aria-label="Instagram">
+                    <img src="/instagram.svg" alt="instagram" class="social-icon w-6 h-6 fill-current text-current"/>
+                </a>
+                <a href="https://www.instagram.com/gginsurances/" target="_blank" aria-label="Email">
+                    <img src="/envelope.svg" alt="email" class="social-icon w-6 h-6 fill-current text-current"/>
+                </a>
+                <a href="https://www.instagram.com/gginsurances/" target="_blank" aria-label="Teléfono">
+                    <img src="/phone.svg" alt="phone" class="social-icon w-6 h-6 fill-current text-current"/>
+                </a>
+            </div>
+
+            <!-- Hamburguesa solo en móvil -->
+            <div class="lg:hidden">
+                <Hamburguer/>
+            </div>
+        </div>
     </div>
 </header>
+
+<style is:global>
+    /* Asegúrate de agregar el estilo para los íconos */
+    .social-icon {
+        width: 20px; /* Ajusta el tamaño de los íconos */
+        height: 20px; /* Asegúrate de mantener la proporción */
+        transition: transform 0.3s ease; /* Transición suave para el hover */
+    }
+
+    .social-icon:hover {
+        transform: scale(1.2); /* Aumenta el tamaño del ícono al pasar el mouse */
+    }
+</style>
+
 
 <script>
     import {DOMLoaded} from '../ts/utils'
 
     DOMLoaded(() => {
-        const body = document.querySelector('body') as HTMLElement
-        const hamburguer = document.querySelector(
-            '[data-hamburguer]'
-        ) as HTMLButtonElement
-        const nav = document.querySelector('[data-nav]') as HTMLElement
+        const body = document.querySelector('body')
+        const hamburguer = document.querySelector('[data-hamburguer]')
+        const nav = document.querySelector('[data-nav]')
+        const navLinks = document.querySelectorAll('.nav-link')
 
-        hamburguer.addEventListener('click', () => {
+        hamburguer?.addEventListener('click', () => {
             hamburguer.toggleAttribute('open')
-            nav.toggleAttribute('open')
-            body.classList.toggle('overflow-hidden')
+            nav?.toggleAttribute('open')
+            body?.classList.toggle('overflow-hidden')
+        })
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault()
+                const href = link.getAttribute('href')
+
+                if (nav?.hasAttribute('open')) {
+                    hamburguer?.removeAttribute('open')
+                    nav?.removeAttribute('open')
+                    body?.classList.remove('overflow-hidden')
+                }
+
+                if (href) {
+                    const targetId = href.slice(1)
+                    const targetElement = document.getElementById(targetId)
+                    if (targetElement) {
+                        setTimeout(() => {
+                            targetElement.scrollIntoView({behavior: 'smooth'})
+                        }, 100)
+                    } else {
+                        window.location.href = href
+                    }
+                }
+            })
         })
     })
 </script>
+
+<style>
+    .custom-button {
+        --ac-btn-border-radius: 999px;
+        --ac-btn-font-weight: 600;
+        border-width: 0;
+        background-image: linear-gradient(
+                90deg,
+                rgb(var(--ac-primary)) 0%,
+                rgb(var(--ac-secondary)) 100%
+        );
+    }
+</style>

@@ -6,7 +6,7 @@ export default {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      primary: 'rgb(var(--ac-primary), <alpha-value>)',
+      primary: '#1B69B3',
       secondary: 'rgb(var(--ac-secondary), <alpha-value>)',
       white: 'rgb(var(--ac-white), <alpha-value>)',
       black: 'rgb(0, 0, 0)',
@@ -33,7 +33,7 @@ export default {
       padding: '2rem',
     },
     fontFamily: {
-      sans: ['Poppins', 'sans-serif'],
+      sans: ['Arial', 'sans-serif'],
     },
     extend: {
       animation: {

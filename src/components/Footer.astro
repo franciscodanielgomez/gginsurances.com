@@ -1,5 +1,5 @@
 ---
-import {Icon} from 'free-astro-components'
+import {Icon, ThemeSwitch} from 'free-astro-components'
 ---
 <footer class="py-8 lg:py-12 border-t border-neutral-300/50 bg-blue-100 bg-gradient-to-b from-primary/5 via-primary/0 via-70% to-secondary/5">
     <div class="container mx-auto px-4">
@@ -14,7 +14,7 @@ import {Icon} from 'free-astro-components'
                         <img src="/logo.png" alt="GG Insurances" class="h-auto w-auto max-h-4 object-contain"/>
                     </a>
                 </div>
-                <p class="text-sm">
+                <p class="text-sm text-neutral-600">
                     Somos una empresa familiar con cinco años de experiencia en la protección integral de las familias,
                     ofreciendo más que solo seguros de salud; proporcionamos seguros de vida, asistencia funeraria,
                     seguros de accidentes, así como cobertura dental y de visión, asegurando el bienestar económico de
@@ -47,4 +47,11 @@ import {Icon} from 'free-astro-components'
             © {new Date().getFullYear()} GG Insurances. Todos los derechos reservados.
         </p>
     </div>
+
+    <div class="container mx-auto px-4 mt-8">
+        <ThemeSwitch/>
+    </div>
+
+
+
 </footer>
