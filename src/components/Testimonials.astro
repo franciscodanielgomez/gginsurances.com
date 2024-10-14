@@ -2,7 +2,7 @@
 interface Props {
   image: string // URL de la imagen del perfil
   description: string // Testimonio
-  name: string // Nombre de la persona
+
 }
 
 const { image, description, name } = Astro.props
@@ -18,7 +18,6 @@ const { image, description, name } = Astro.props
   <div class="flex flex-col gap-4 text-center">
     <p class="text-neutral-500">{description}</p>
 
-    <!-- Nombre de la persona -->
-    <p class="text-neutral-600 font-bold">{name}</p>
+
   </div>
 </article>
