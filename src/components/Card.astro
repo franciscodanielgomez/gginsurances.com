@@ -1,0 +1,51 @@
+---
+interface Props {
+    type: 'primary' | 'secondary' | 'light'
+    title?: string
+    description?: string
+    backgroundImage?: string
+    link: string  // Nueva propiedad para el enlace
+}
+
+const { title, description, backgroundImage, link } = Astro.props
+---
+
+<a href={link} class="block h-96 group">
+    <article
+            class="flex flex-col gap-4 h-full rounded-3xl p-8 relative overflow-hidden transition-all duration-300 touch-manipulation"
+            style={`background-image: url('${backgroundImage}'); background-size: cover; background-position: center;`}
+    >
+        <div class="absolute inset-0 bg-black opacity-30 transition-opacity duration-300 group-hover:opacity-70 group-focus:opacity-50"></div>
+
+        <div class="flex flex-col gap-4 relative z-10">
+            <h3 class="text-white text-2xl lg:text-3xl">{title}</h3>
+            <p class="flex-1 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus:opacity-100 md:group-hover:opacity-100">
+                {description}
+            </p>
+        </div>
+    </article>
+</a>
+
+<script>
+    function handleTouch(event) {
+        const card = event.currentTarget;
+        card.classList.add('touch-active');
+
+        function removeActive() {
+            card.classList.remove('touch-active');
+            document.removeEventListener('touchend', removeActive);
+        }
+
+        document.addEventListener('touchend', removeActive);
+    }
+
+    document.querySelectorAll('a > article').forEach(card => {
+        card.addEventListener('touchstart', handleTouch);
+    });
+</script>
+
+<style>
+    .touch-active .group-hover\:opacity-100 {
+        opacity: 1;
+    }
+</style>

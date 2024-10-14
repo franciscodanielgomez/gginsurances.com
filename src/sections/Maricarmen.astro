@@ -1,0 +1,65 @@
+---
+import HeroGradient from '../components/HeroGradient.astro';
+import {Accordion, AccordionItem} from 'free-astro-components'
+
+
+interface Props {
+    title?: string;
+    description?: string;
+    align?: 'center' | 'left';
+}
+
+const {title, description, align = 'left'} = Astro.props;
+
+---
+
+<section class="relative h-auto text-neutral-700 px-4 pt-24 pb-8 md:px-8 overflow-clip">
+    <div class="relative flex items-center w-full h-full bg-gradient-to-b from-primary/5 via-primary/0 via-70% to-secondary/5 rounded-3xl overflow-clip">
+        <HeroGradient/>
+
+        <div class="relative container flex flex-col md:flex-row gap-16">
+            <!-- Columna Izquierda -->
+            <div class="flex flex-col gap-8 md:w-2/3">
+                <h2 class="text-neutral-700 text-3xl lg:text-4xl">
+                    GG Insurances, sobre nosotros
+                </h2>
+                <p class="text-neutral-500 lg:text-lg">
+                    Soy Maricarmen Nieto, la persona que forma parte de la parte directiva de Global Growth Insurance.
+                    Junto a mi equipo de trabajo, asesoro a las personas para que tengan una cobertura de calidad. </p>
+                <p class="text-neutral-500 lg:text-lg">
+                    Soy venezolana y trabajo arduamente para que tú y tu familia cuenten con los planes que más se
+                    adecuen a tus necesidades. Te brindo atención personalizada y me preocupo por tu bienestar.
+                </p>
+                <p class="text-neutral-500 lg:text-lg">
+                    Ayudar a nuestros clientes para que hagan uso correcto de su seguro de salud y así poder obtener sus
+                    beneficios al máximo. A parte de seguros de salud ofrecemos seguros dentales, seguros de accidente y
+                    seguros de vida (que tienen beneficios en vida), brindando una cobertura integral a nuestros
+                    clientes. </p>
+                <Accordion>
+                    <AccordionItem title="Nuestra Misión">
+                        <p>
+                            Que todas las familias sobre todo las latinas cuenten con una cobertura médica para que no tengan
+                            que lidiar con las facturas médicas que pueden producir un desequilibrio en la economía familiar.
+
+                        </p>
+                    </AccordionItem>
+                    <AccordionItem title="Nuestra Visión">
+
+                    <p>
+                            Ayudar a nuestros clientes para que hagan uso correcto de su seguro de salud y así poder obtener sus
+                            beneficios al máximo. A parte de seguros de salud ofrecemos seguros dentales, seguros de accidente y
+                            seguros de vida (que tienen beneficios en vida), brindando una cobertura integral a nuestros
+                            clientes.
+                        </p>
+                    </AccordionItem>
+
+                </Accordion>
+            </div>
+
+            <!-- Columna Derecha -->
+            <div class="lg:w-1/3">
+                <img src="/maricarmen.png" alt="Sobre nosotros" class="rounded-lg shadow-lg w-full h-auto">
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,24 @@
+---
+interface Props {
+  image: string // URL de la imagen del perfil
+  description: string // Testimonio
+  name: string // Nombre de la persona
+}
+
+const { image, description, name } = Astro.props
+---
+
+<article class="flex flex-col gap-4 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl p-8">
+  <!-- Imagen de perfil -->
+  <div class="flex justify-center">
+    <img src={image} alt={name} class="w-20 h-20 rounded-full object-cover" />
+  </div>
+
+  <!-- Testimonio -->
+  <div class="flex flex-col gap-4 text-center">
+    <p class="text-neutral-500">{description}</p>
+
+    <!-- Nombre de la persona -->
+    <p class="text-neutral-600 font-bold">{name}</p>
+  </div>
+</article>

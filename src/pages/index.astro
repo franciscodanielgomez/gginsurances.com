@@ -1,0 +1,47 @@
+---
+import { Button } from 'free-astro-components'
+import Code from '../components/Code.astro'
+import CTA from '../sections/CTA.astro'
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import Hero from '../sections/Hero.astro'
+import Intro from '../sections/Intro.astro'
+import Layout from '../layouts/Layout.astro'
+import Sidebar from '../layouts/Sidebar.astro'
+import FAQ from '../sections/FAQ.astro'
+import About from '../sections/About.astro'
+import Testimonials from '../sections/Testimonial.astro'
+import Maricarmen from "../sections/Maricarmen.astro";
+---
+
+<Layout title="Free Astro Components">
+  <Sidebar class="lg:hidden" />
+  <Header />
+  <main>
+    <Hero
+      align="left"
+      title="¿Necesitas un seguro médico a bajo costo o sin costo?"
+      description="Comunícate con nosotros haciendo click aquí o en el botón de WhatsApp."
+    >
+      <div>
+        <Button href="https://api.whatsapp.com/send/?phone=17864242433&text&type=phone_number&app_absent=0" label="Contacto"  />
+      </div>
+    </Hero>
+    <About />
+    <Intro />
+    <Maricarmen />
+    <Testimonials />
+
+    <FAQ />
+    <CTA
+      align="center"
+      title="Nunca es tarde para contactar un <strong>seguro</strong>"
+      description="No dudes en escribirnos si tienes alguna pregunta, comentario o simplemente si necesitas ayuda. Estamos para tí."
+    >
+      <Button href="/components/button" label="Explore Components" />
+
+    </CTA>
+
+  </main>
+  <Footer />
+</Layout>

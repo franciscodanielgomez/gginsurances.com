@@ -1,0 +1,77 @@
+---
+import Card from '../components/Card.astro'
+---
+
+<section class="py-16 lg:py-32">
+    <div class="container flex flex-col gap-16">
+        <div class="flex flex-col gap-4">
+            <h2 class="text-neutral-700 text-3xl lg:text-4xl [&>strong]:font-medium">
+                Servicios
+            </h2>
+            <p class="text-neutral-500 lg:text-lg">
+                Nuestros seguros de salud ofrecen cobertura para gastos médicos y servicios preventivos,
+                garantizando el bienestar de tu familia en caso de enfermedad o accidente.
+            </p>
+        </div>
+
+        <ul class="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-16">
+            <li>
+                <Card
+                        type="light"
+                        title="Planes de salud"
+                        description="Tener un seguro de salud es una forma de garantizar el bienestar de tu familia, ya que proporciona cobertura para gastos médicos y quirúrgicos que pueden surgir por accidentes o enfermedades. Además, te permite acceder a servicios preventivos, vacunas y exámenes de detección de enfermedades."
+                        backgroundImage="/1.webp"
+                        link="https://api.whatsapp.com/send/?phone=17864242433&text&type=phone_number&app_absent=0"
+                />
+            </li>
+            <li>
+                <Card
+                        type="light"
+                        title="Póliza de vida"
+                        description="Una póliza de vida es una protección financiera que asegura el cumplimiento de nuestras obligaciones económicas en caso de enfermedad grave o accidente inesperado. En caso de fallecimiento prematuro, esta póliza protege la pérdida de ingresos y el futuro de tu familia."
+                        backgroundImage="/2.webp"
+                        link="https://api.whatsapp.com/send/?phone=17864242433&text&type=phone_number&app_absent=0"
+                />
+            </li>
+            <li>
+                <Card
+                        type="light"
+                        title="Seguros dentales"
+                        description="Nuestros seguros dentales ofrecen planes para chequeos preventivos y de rutina, asegurando que no descuides tu salud bucal."
+                        backgroundImage="/3.webp"
+                        link="https://api.whatsapp.com/send/?phone=17864242433&text&type=phone_number&app_absent=0"
+                />
+            </li>
+        </ul>
+
+        <ul class="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-16">
+            <li>
+                <Card
+                        type="light"
+                        title="Seguro de viaje"
+                        description="Con nuestro seguro de viaje, podrás disfrutar de tus viajes sin preocupaciones, ya que ofrecemos protección y asistencia médica en caso de enfermedad o lesión durante tu estadía en el extranjero."
+                        backgroundImage="/4.webp"
+                        link="https://api.whatsapp.com/send/?phone=17864242433&text&type=phone_number&app_absent=0"
+                />
+            </li>
+            <li>
+                <Card
+                        type="light"
+                        title="Servicio de asistencia funeraria"
+                        description="Este servicio está diseñado para ayudarte a cubrir los gastos funerarios, brindándote apoyo en esos momentos difíciles de la pérdida de un ser querido."
+                        backgroundImage="/5.webp"
+                        link="https://api.whatsapp.com/send/?phone=17864242433&text&type=phone_number&app_absent=0"
+                />
+            </li>
+            <li>
+                <Card
+                        type="light"
+                        title="Planes Suplementarios"
+                        description="Los planes suplementarios te ayudan a cubrir gastos no incluidos en el seguro de salud, brindándote tranquilidad en caso de accidente, lesión o enfermedad. Estos planes también pueden ayudarte a pagar los deducibles de tu seguro médico."
+                        backgroundImage="/1.webp"
+                        link="https://api.whatsapp.com/send/?phone=17864242433&text&type=phone_number&app_absent=0"
+                />
+            </li>
+        </ul>
+    </div>
+</section>

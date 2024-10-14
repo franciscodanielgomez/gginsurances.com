@@ -1,0 +1,38 @@
+---
+import Card from '../components/Testimonials.astro'
+---
+
+<section class="py-16 lg:py-32">
+    <div class="container flex flex-col gap-16">
+        <div class="flex flex-col gap-4">
+            <h2 class="text-neutral-700 text-3xl lg:text-4xl [&>strong]:font-medium">
+                <strong>Testimonios</strong>
+            </h2>
+            <p class="text-neutral-500 lg:text-lg">
+                Nuestros clientes confían día a día en cada uno de los servicios que ofrecemos.
+            </p>
+        </div>
+
+        <ul class="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-16">
+            <li>
+                <Card
+                        image="/profile1.png"
+                        description='"Doy fe que la empresa que me presta el servicio del plan de salud, siempre se han portado a la altura conmigo; el servicio que nos prestan es un gran equipo de personas dispuestas a llenar todas las expectativas de salud. Yo tuve una emergencia de salud; me operaron de emergencia y todo fué un servicio médico de excelencia."'
+                />
+            </li>
+            <li>
+                <Card
+                        image="/profile2.png"
+                        description='"Hola Maricarmen quería agradecerte a ti y a tu equipo por tu disposición y buena atención siempre que tengo alguna duda o con la renovación de la póliza de seguro. Gracias por siempre ser tan atenta, estamos muy contentos con tus servicios."'
+
+                />
+            </li>
+            <li>
+                <Card
+                        image="/profile3.png"
+                        description='"My experience with Maricarmen has been excellent. They have always been there to help me when I have needed them. I couldn’t be happier with their services. I recommend everyone to call them before making such an important decision."'
+                />
+            </li>
+        </ul>
+    </div>
+</section>

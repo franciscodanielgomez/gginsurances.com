@@ -1,0 +1,117 @@
+---
+import {Accordion, AccordionItem} from 'free-astro-components'
+---
+
+<section class="pb-16 lg:pb-32">
+    <div class="container">
+        <div
+                class=" from-primary/50 to-secondary/50 rounded-3xl p-px"
+        >
+
+            <div class="flex flex-col items-center gap-16  px-8 lg:px-16 xl:px-24 py-16 lg:py-32">
+                <div class="flex flex-col items-center gap-4 text-center">
+                    <h2 class="text-neutral-700 text-3xl lg:text-4xl [&>strong]:font-medium">
+                        Preguntas Frecuentes
+                    </h2>
+                    <p class="text-neutral-500 lg:text-lg">
+                        Aquí encontrarás respuestas a las preguntas más comunes sobre nuestras coberturas y servicios.
+                    </p>
+                </div>
+            </div>
+
+            <Accordion variant='shadow'>
+                <AccordionItem
+                        title="¿Cuáles son los estados en los que tenemos licencia para brindar nuestros servicios?">
+                    <ul>
+                        <li>Florida, Texas, Georgia, North Carolina, South Carolina, Tennessee, Ohio, Arizona, Indiana,
+                            Virginia, Utah, Michigan e Illinois.</li>
+                    </ul>
+                </AccordionItem>
+                <AccordionItem title="¿Necesito tener un estatus migratorio para aplicar a una cobertura de salud?">
+                    <p>
+                        Debes por lo menos haber iniciado un proceso migratorio y tener la forma I797.
+                    </p>
+                </AccordionItem>
+                <AccordionItem title="¿Hasta que edad mis hijos tienen cobertura dentro de mi póliza?">
+                    <ul>
+                        <li>Sus hijos pueden permanecer en la póliza hasta cumplir los 26 años. Pueden estar cubiertos incluso si no son estudiantes o no viven con usted.</li>
+                    </ul>
+                </AccordionItem>
+                <AccordionItem title="¿Cuáles son los beneficios esenciales de la cobertura?">
+                    <p>Beneficios de Salud Esenciales:</p>
+                    <br>
+                    <ul>
+                        <li>- Servicios ambulatorios.</li>
+                        <li>- Servicios de emergencia.</li>
+                        <li>- Atención de hospitalización.</li>
+                        <li>- Atención durante el embarazo, el parto y de recién nacidos.</li>
+                        <li>- Atención de salud mental y del comportamiento y servicios para el abuso de sustancias.</li>
+                        <li>- Medicamentos con receta.</li>
+                        <li>- Servicios que permiten que un adulto o un niño aprendan, mantengan y mejoren las capacidades
+                            y el rendimiento en la vida diaria (servicios de habilitación).
+                        </li>
+                        <li>- Servicios para ayudar a las personas que han perdido las capacidades y el rendimiento a
+                            causa de una enfermedad, una lesión o una discapacidad (servicios de rehabilitación).
+                        </li>
+                        <li>- Servicios de laboratorio.</li>
+                        <li>- Atención preventiva y de bienestar.</li>
+                        <li>- Manejo de enfermedades crónicas.</li>
+                        <li>- Atención de salud para niños (incluyendo la atención dental y de la visión).</li>
+                    </ul>
+                </AccordionItem>
+                <AccordionItem title="¿Puedo aplicar en una cobertura de salud si tengo una enfermedad preexistente?">
+                    <p>
+                        Sí, el seguro de salud cubre todo tipo de enfermedad preexistente.
+                    </p>
+                </AccordionItem>
+                <AccordionItem title="¿Cómo ahorrar dinero con un seguro de salud?">
+                    <ul>
+                        <li>Visitando los médicos, hospitales, farmacias, laboratorios y centros diagnósticos que se encuentren en la red de proveedores de la compañía de salud en la cual estas inscrito.</li>
+                    </ul>
+                </AccordionItem>
+                <AccordionItem title="¿Cómo afecta la cobertura mis impuestos?">
+                    <ul>
+                        <li>Solo te afecta si no colocas el ingreso que vas a ganar ese año que tuviste cobertura. Por eso siempre recomendamos actualizar tus ingresos cada vez que estos cambian.</li>
+                    </ul>
+                </AccordionItem>
+                <AccordionItem title="¿Si estoy embarazada al momento de adquirir la póliza el seguro me cubre el parto?">
+                    <ul>
+                        <li>Sí, te cubre el cuidado pre natal, el parto y el post parto, y además puedes incluir a tu bebé en la cobertura una vez que nazca dentro de los primeros 60 días de su nacimiento.</li>
+                    </ul>
+                </AccordionItem>
+                <AccordionItem title="¿El seguro de salud me cubre la parte odontológica?">
+                    <ul>
+                        <li>No, los seguros dentales se venden en un plan a parte del seguro de salud.</li>
+                    </ul>
+                </AccordionItem>
+                <AccordionItem title="¿El seguro cubre servicios oftalmológico?">
+                    <ul>
+                        <li>Solo para personas menores de 19 años, tienen una visita anual y un par de lentes gratis.</li>
+                    </ul>
+                </AccordionItem>
+                <AccordionItem title="¿Si perdí mi seguro en el trabajo puedo inscribirme en los seguros de salud del Marketplace?">
+                    <ul>
+                        <li>Sí, tienes la opción de inscribirte y poder obtener cobertura médica.</li>
+                    </ul>
+                </AccordionItem>
+                <AccordionItem title="¿Si mis hijos ya no califican para Medicaid los puedo incorporar en mi cobertura medica?">
+                    <ul>
+                        <li>Sí, durante cualquier mes del año tus hijos califican para entrar en tu cobertura medica una vez que sean inelegibles para Medicaid.</li>
+                    </ul>
+                </AccordionItem>
+                <AccordionItem title="¿Si tengo Medicare puedo también puedo tener Obamacare?">
+                    <ul>
+                        <li>No, usted ya no es elegible para tener cobertura a través del Mercado de Salud.</li>
+                    </ul>
+                </AccordionItem>
+            </Accordion>
+
+
+            <div>
+                <slot/>
+            </div>
+        </div>
+    </div>
+
+</section>
+
