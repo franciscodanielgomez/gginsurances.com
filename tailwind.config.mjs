@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-/** @import '@fortawesome/fontawesome-free/css/all.css'*/
 
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],

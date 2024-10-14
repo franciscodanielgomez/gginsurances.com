@@ -1,71 +1,83 @@
 ---
-import { Icon, ThemeSwitch } from 'free-astro-components'
+import {Icon, ThemeSwitch} from 'free-astro-components'
 import Hamburguer from './Hamburguer.astro'
+import {Button} from 'free-astro-components'
 ---
 
 <header class="fixed inset-x-0 top-0 bg-neutral-100/60 text-neutral-700 py-4 border-b border-neutral-300/50 backdrop-blur-md z-20">
-  <div class="container mx-auto px-4 flex justify-between items-center">
-    <div class="flex-shrink-0">
-      <a
-          href="/"
-          aria-label="GG Insurances"
-          class="block"
-      >
-        <img src="/logo.png" alt="GG Insurances" class="h-auto w-auto max-h-4 object-contain" />
-      </a>
+    <div class="container mx-auto px-4 flex justify-between items-center">
+        <div class="flex-shrink-0">
+            <a
+                    href="/"
+                    aria-label="GG Insurances"
+                    class="block"
+            >
+                <img src="/logo.png" alt="GG Insurances" class="h-auto w-auto max-h-4 object-contain"/>
+            </a>
+        </div>
+
+        <nav class="flex-grow flex justify-end">
+            <ul class="flex items-center gap-4 lg:gap-8">
+                <li>
+                    <a class="text-sm hover:text-primary transition duration-300 ease-in-out" href="#servicios">Servicios</a>
+                </li>
+                <li class="hidden lg:block">
+                    <a class="text-sm hover:text-primary transition duration-300 ease-in-out" href="#about">Nosotros</a>
+                </li>
+                <li class="hidden lg:block">
+                    <a class="text-sm hover:text-primary transition duration-300 ease-in-out" href="#testimonials">Testimonios</a>
+                </li>
+                <li class="hidden lg:block">
+                    <a class="text-sm hover:text-primary transition duration-300 ease-in-out" href="#faq">Preguntas
+                        Frecuentes</a>
+                </li>
+                <li class="hidden lg:block">
+                    <a href="#contacto">
+                        <Button label='Contacto' class='custom-button'/>
+
+                        <style>
+                            /* Example of custom button styles */
+                            .custom-button {
+                                --ac-btn-border-radius: 999px;
+                                --ac-btn-font-weight: 600;
+                                border-width: 0;
+                                background-image: linear-gradient(
+                                        90deg,
+                                        rgb(var(--ac-primary)) 0%,
+                                        rgb(var(--ac-secondary)) 100%
+                                );
+                            }
+                        </style>
+                    </a>
+                </li>
+
+
+                <li>
+                    <ThemeSwitch/>
+                </li>
+
+                <li class="lg:hidden">
+                    <Hamburguer/>
+                </li>
+            </ul>
+        </nav>
     </div>
-
-    <nav class="flex-grow flex justify-end">
-      <ul class="flex items-center gap-4 lg:gap-8">
-        <li>
-          <a class="text-sm hover:text-primary transition duration-300 ease-in-out" href="#servicios">Servicios</a>
-        </li>
-        <li class="hidden lg:block">
-          <a class="text-sm hover:text-primary transition duration-300 ease-in-out" href="#about">Nosotros</a>
-        </li>
-        <li class="hidden lg:block">
-          <a class="text-sm hover:text-primary transition duration-300 ease-in-out" href="#testimonials">Testimonios</a>
-        </li>
-        <li class="hidden lg:block">
-          <a class="text-sm hover:text-primary transition duration-300 ease-in-out" href="#faq">Preguntas Frecuentes</a>
-        </li>
-        <li class="hidden lg:block">
-          <a class="text-sm hover:text-primary transition duration-300 ease-in-out" href="#contacto">Contacto</a>
-        </li>
-
-        <li>
-          <a class="text-primary hover:text-secondary transition duration-300 ease-in-out" href="/" aria-label="instagram">
-            <Icon icon="envelope" class="w-6 h-6 lg:w-8 lg:h-8" />
-            <Icon icon="star" class="w-6 h-6 lg:w-8 lg:h-8" />
-          </a>
-        </li>
-
-        <li>
-          <ThemeSwitch />
-        </li>
-
-        <li class="lg:hidden">
-          <Hamburguer />
-        </li>
-      </ul>
-    </nav>
-  </div>
 </header>
 
 <script>
-  import { DOMLoaded } from '../ts/utils'
+    import {DOMLoaded} from '../ts/utils'
 
-  DOMLoaded(() => {
-    const body = document.querySelector('body') as HTMLElement
-    const hamburguer = document.querySelector(
-        '[data-hamburguer]'
-    ) as HTMLButtonElement
-    const nav = document.querySelector('[data-nav]') as HTMLElement
+    DOMLoaded(() => {
+        const body = document.querySelector('body') as HTMLElement
+        const hamburguer = document.querySelector(
+            '[data-hamburguer]'
+        ) as HTMLButtonElement
+        const nav = document.querySelector('[data-nav]') as HTMLElement
 
-    hamburguer.addEventListener('click', () => {
-      hamburguer.toggleAttribute('open')
-      nav.toggleAttribute('open')
-      body.classList.toggle('overflow-hidden')
+        hamburguer.addEventListener('click', () => {
+            hamburguer.toggleAttribute('open')
+            nav.toggleAttribute('open')
+            body.classList.toggle('overflow-hidden')
+        })
     })
-  })
 </script>

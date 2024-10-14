@@ -2,7 +2,6 @@
 import HeroGradient from '../components/HeroGradient.astro';
 import {Accordion, AccordionItem} from 'free-astro-components'
 
-
 interface Props {
     title?: string;
     description?: string;
@@ -10,55 +9,55 @@ interface Props {
 }
 
 const {title, description, align = 'left'} = Astro.props;
-
 ---
 
-<section class="relative h-auto text-neutral-700 px-4 pt-24 pb-8 md:px-8 overflow-clip" id="about">
-    <div class="relative flex items-center w-full h-full bg-gradient-to-b from-primary/5 via-primary/0 via-70% to-secondary/5 rounded-3xl overflow-clip">
+<section class="relative text-neutral-700 px-4 pt-24 pb-8 md:px-8 overflow-clip" id="about">
+    <div class="relative flex items-center bg-gradient-to-b from-primary/5 via-primary/0 via-70% to-secondary/5 rounded-3xl overflow-clip">
         <HeroGradient/>
 
-        <div class="relative container flex flex-col md:flex-row gap-16">
-            <!-- Columna Izquierda -->
-            <div class="flex flex-col gap-8 md:w-2/3">
-                <h2 class="text-neutral-700 text-3xl lg:text-4xl">
-                    GG Insurances, sobre nosotros
-                </h2>
-                <p class="text-neutral-500 lg:text-lg">
-                    Soy Maricarmen Nieto, la persona que forma parte de la parte directiva de Global Growth Insurance.
-                    Junto a mi equipo de trabajo, asesoro a las personas para que tengan una cobertura de calidad. </p>
-                <p class="text-neutral-500 lg:text-lg">
-                    Soy venezolana y trabajo arduamente para que tú y tu familia cuenten con los planes que más se
-                    adecuen a tus necesidades. Te brindo atención personalizada y me preocupo por tu bienestar.
-                </p>
-                <p class="text-neutral-500 lg:text-lg">
-                    Ayudar a nuestros clientes para que hagan uso correcto de su seguro de salud y así poder obtener sus
-                    beneficios al máximo. A parte de seguros de salud ofrecemos seguros dentales, seguros de accidente y
-                    seguros de vida (que tienen beneficios en vida), brindando una cobertura integral a nuestros
-                    clientes. </p>
-                <Accordion>
-                    <AccordionItem title="Nuestra Misión">
-                        <p>
-                            Que todas las familias sobre todo las latinas cuenten con una cobertura médica para que no tengan
-                            que lidiar con las facturas médicas que pueden producir un desequilibrio en la economía familiar.
-
+        <div class="relative container mx-auto px-4 md:px-8">
+            <div class="flex flex-col lg:flex-row gap-16 py-12">
+                <!-- Columna Izquierda -->
+                <div class="flex flex-col gap-8 w-full lg:w-2/3">
+                    <div class="flex-shrink-0">
+                        <a href="/" aria-label="GG Insurances" class="block">
+                            <img src="/logo.png" alt="GG Insurances" class="h-auto w-auto max-h-4 object-contain"/>
+                        </a>
+                    </div>
+                    <h2 class="text-neutral-700 text-3xl lg:text-4xl font-semibold">
+                        Nosotros
+                    </h2>
+                    <div class="space-y-6">
+                        <p class="text-neutral-600 lg:text-lg">
+                            Soy Maricarmen Nieto, la persona que forma parte de la parte directiva de Global Growth Insurance. Junto a mi equipo de trabajo, asesoro a las personas para que tengan una cobertura de calidad.
                         </p>
-                    </AccordionItem>
-                    <AccordionItem title="Nuestra Visión">
-
-                    <p>
-                            Ayudar a nuestros clientes para que hagan uso correcto de su seguro de salud y así poder obtener sus
-                            beneficios al máximo. A parte de seguros de salud ofrecemos seguros dentales, seguros de accidente y
-                            seguros de vida (que tienen beneficios en vida), brindando una cobertura integral a nuestros
-                            clientes.
+                        <p class="text-neutral-600 lg:text-lg">
+                            Soy venezolana y trabajo arduamente para que tú y tu familia cuenten con los planes que más se adecuen a tus necesidades. Te brindo atención personalizada y me preocupo por tu bienestar.
                         </p>
-                    </AccordionItem>
+                        <p class="text-neutral-600 lg:text-lg">
+                            Ayudar a nuestros clientes para que hagan uso correcto de su seguro de salud y así poder obtener sus beneficios al máximo. A parte de seguros de salud ofrecemos seguros dentales, seguros de accidente y seguros de vida (que tienen beneficios en vida), brindando una cobertura integral a nuestros clientes.
+                        </p>
+                    </div>
+                    <Accordion class="mt-8">
+                        <AccordionItem title="Nuestra Misión">
+                            <p class="text-neutral-600">
+                                Que todas las familias sobre todo las latinas cuenten con una cobertura médica para que no tengan que lidiar con las facturas médicas que pueden producir un desequilibrio en la economía familiar.
+                            </p>
+                        </AccordionItem>
+                        <AccordionItem title="Nuestra Visión">
+                            <p class="text-neutral-600">
+                                Ayudar a nuestros clientes para que hagan uso correcto de su seguro de salud y así poder obtener sus beneficios al máximo. A parte de seguros de salud ofrecemos seguros dentales, seguros de accidente y seguros de vida (que tienen beneficios en vida), brindando una cobertura integral a nuestros clientes.
+                            </p>
+                        </AccordionItem>
+                    </Accordion>
+                </div>
 
-                </Accordion>
-            </div>
-
-            <!-- Columna Derecha -->
-            <div class="lg:w-1/3">
-                <img src="/maricarmen.png" alt="Sobre nosotros" class="rounded-lg shadow-lg w-full h-auto">
+                <!-- Columna Derecha -->
+                <div class="hidden lg:flex lg:w-1/3 items-center justify-center">
+                    <div class="sticky top-24 pt-8 lg:pt-0">
+                        <img src="/maricarmen.webp" alt="Sobre nosotros" class="rounded-lg shadow-lg w-full h-auto max-w-md object-cover">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

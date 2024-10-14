@@ -7,21 +7,26 @@ const { title } = Astro.props
 ---
 
 <!doctype html>
+
 <html lang="en" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
+<head>
+  <meta charset="UTF-8" />
+  <meta
       name="description"
       content="You can use these components to build your Astro projects faster."
-    />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <slot />
-  </body>
+  />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+</head>
+<body>
+<slot />
+
+<a href="https://wa.me/1234567890" class="whatsapp-button" target="_blank" aria-label="Contactar por WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+</a>
+</body>
 </html>
 
 <style is:global>
@@ -45,5 +50,23 @@ const { title } = Astro.props
 
   p {
     @apply font-light text-pretty max-w-[65ch];
+  }
+
+  .whatsapp-button {
+    position: fixed; /* Permite que el botón se mantenga en su lugar al hacer scroll */
+    bottom: 20px; /* Ajusta la distancia desde la parte inferior */
+    right: 20px; /* Ajusta la distancia desde la parte derecha */
+    z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
+    transition: transform 0.3s ease; /* Transición suave para el hover */
+  }
+
+  .whatsapp-button:hover img {
+    transform: scale(1.3); /* Aumenta el tamaño del ícono al pasar el mouse */
+    transition: transform 0.3s ease; /* Transición suave para el efecto de hover */
+  }
+
+  .whatsapp-button img {
+    width: 50px; /* Ajusta el tamaño del ícono */
+    height: 50px; /* Asegúrate de mantener la proporción */
   }
 </style>
