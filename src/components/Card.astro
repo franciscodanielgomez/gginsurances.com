@@ -4,7 +4,7 @@ interface Props {
     title?: string
     description?: string
     backgroundImage?: string
-    link: string  // Nueva propiedad para el enlace
+    link: string
 }
 
 const { title, description, backgroundImage, link } = Astro.props
@@ -15,7 +15,7 @@ const { title, description, backgroundImage, link } = Astro.props
             class="flex flex-col gap-4 h-full rounded-3xl p-8 relative overflow-hidden transition-all duration-300 touch-manipulation"
             style={`background-image: url('${backgroundImage}'); background-size: cover; background-position: center;`}
     >
-        <div class="absolute inset-0 bg-black opacity-30 transition-opacity duration-300 group-hover:opacity-70 group-focus:opacity-50"></div>
+        <div class="absolute inset-0 bg-black opacity-20 transition-opacity duration-300 group-hover:opacity-70 group-focus:opacity-50"></div>
 
         <div class="flex flex-col gap-4 relative z-10">
             <h3 class="text-white text-2xl lg:text-3xl">{title}</h3>
@@ -27,8 +27,8 @@ const { title, description, backgroundImage, link } = Astro.props
 </a>
 
 <script>
-    function handleTouch(event) {
-        const card = event.currentTarget;
+    function handleTouch(event: TouchEvent) {
+        const card = event.currentTarget as HTMLElement;
         card.classList.add('touch-active');
 
         function removeActive() {
@@ -40,7 +40,7 @@ const { title, description, backgroundImage, link } = Astro.props
     }
 
     document.querySelectorAll('a > article').forEach(card => {
-        card.addEventListener('touchstart', handleTouch);
+        card.addEventListener('touchstart', handleTouch as EventListener);
     });
 </script>
 
