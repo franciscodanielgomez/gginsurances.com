@@ -1,69 +1,95 @@
 ---
+import { Icon as IconAc } from 'free-astro-components'
 
 interface Props {
-  title?: string
-  description?: string
-  align?: 'center' | 'left' | 'right'
+    title?: string
+    description?: string
+    align?: 'center' | 'left' | 'right'
 }
 
-const { title, description, align } = Astro.props
-
+const {title, description, align} = Astro.props
 ---
 
 <section class="pb-16 lg:pb-32" id="contacto">
-  <div class="container">
-    <div class="bg-gradient-to-r from-primary/50 to-secondary/50 rounded-3xl p-px">
-      <div
-          class:list={[
-            'flex flex-col gap-16 bg-neutral-100 rounded-3xl px-8 lg:px-16 xl:px-24 py-16 lg:py-32',
-            align === 'center' ? 'text-center' : '',
-          ]}
-      >
-        <div class="flex flex-col gap-4">
-          {
-              title && (
-                  <h2
-                      class:list={[
-                        'text-neutral-700 text-3xl lg:text-4xl [&>strong]:font-medium',
-                        align === 'center' ? 'mx-auto' : '',
-                      ]}
-                      set:html={title}
-                  />
-              )
-          }
-          {
-              description && (
-                  <p
-                      class:list={[
-                        'text-neutral-500 lg:text-lg',
-                        align === 'center' ? 'mx-auto' : '',
-                      ]}
-                      set:html={description}
-                  />
-              )
-          }
-        </div>
+    <div class="container">
+        <div class="bg-gradient-to-r from-primary/50 to-secondary/50 rounded-3xl p-px">
+            <div
+                    class:list={[
+                        'flex flex-col gap-16 bg-neutral-100 rounded-3xl px-8 lg:px-16 xl:px-24 py-16 lg:py-32',
+                        align === 'center' ? 'text-center' : '',
+                    ]}
+            >
+                <div class="flex flex-col gap-4">
+                    {
+                        title && (
+                                    <h2
+                                            class:list={[
+                                                'text-neutral-700 text-3xl lg:text-4xl [&>strong]:font-medium',
+                                                align === 'center' ? 'mx-auto' : '',
+                                            ]}
+                                            set:html={title}
+                                    />
+                        )
+                    }
+                    {
+                        description && (
+                                    <p
+                                            class:list={[
+                                                'text-neutral-500 lg:text-lg',
+                                                align === 'center' ? 'mx-auto' : '',
+                                            ]}
+                                            set:html={description}
+                                    />
+                        )
+                    }
+                </div>
 
-        <div>
-          <slot />
-        </div>
+                <div class="flex flex-col items-center gap-4">
+                    <div class="flex flex-col items-center">
+                        <p class="text-neutral-700 flex items-center gap-1">
+                            <a href="tel:+18506925476" class="flex items-center text-blue-500 hover:underline">
+                                +1 (850) 692-5476
+                                <IconAc icon="launch-2" class="w-4 h-4 ml-1" />
+                            </a>
+                        </p>
+                        <p class="text-neutral-700 flex items-center gap-1">
+                            <a href="mailto:support@globalgrowthusa.com" class="flex items-center text-blue-500 hover:underline">
+                                support@globalgrowthusa.com
+                                <IconAc icon="launch-2" class="w-4 h-4 ml-1" />
+                            </a>
+                        </p>
+                    </div>
+                </div>
 
-        <!-- Contenedor de iconos -->
-        <div class="flex justify-center gap-6 mt-8">
-          <a href="https://instagram.com" target="_blank" class="text-neutral-700 hover:text-primary transition duration-300">
-            <i class="fab fa-instagram fa-2x"></i>
-          </a>
-          <a href="https://wa.me/1234567890" target="_blank" class="text-neutral-700 hover:text-primary transition duration-300">
-            <i class="fa fa-whatsapp fa-2x"></i>
-          </a>
-          <a href="mailto:example@example.com" class="text-neutral-700 hover:text-primary transition duration-300">
-            <i class="fas fa-envelope fa-2x"></i>
-          </a>
-          <a href="tel:+1234567890" class="text-neutral-700 hover:text-primary transition duration-300">
-            <i class="fas fa-phone fa-2x"></i>
-          </a>
+
+
+                <div class="flex justify-center gap-4"> <!-- Flexbox para alinear los íconos -->
+                    <!-- Icono de WhatsApp -->
+                    <a href="https://wa.me/message/JKROHAUCEAWWG1" target="_blank" aria-label="Instagram">
+                        <img src="/whatsapp.svg" alt="whatsapp" class="social-icon w-6 h-6 fill-current text-current"/>
+                    </a>
+
+                    <a href="https://www.instagram.com/gginsurances/" target="_blank" aria-label="Instagram">
+                        <img src="/instagram.svg" alt="instagram" class="social-icon w-6 h-6 fill-current text-current"/>
+                    </a>
+
+                </div>
+
+
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
+
+<style is:global>
+    /* Asegúrate de agregar el estilo para los íconos */
+    .social-icon {
+        width: 30px; /* Ajusta el tamaño de los íconos */
+        height: 30px; /* Asegúrate de mantener la proporción */
+        transition: transform 0.3s ease; /* Transición suave para el hover */
+    }
+
+    .social-icon:hover {
+        transform: scale(1.2); /* Aumenta el tamaño del ícono al pasar el mouse */
+    }
+</style>
