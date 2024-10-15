@@ -14,19 +14,16 @@ const { title, description, align = 'left' } = Astro.props
     class="relative h-svh text-neutral-700 px-4 pt-24 pb-8 md:px-8 overflow-hidden section-enter"
     id="servicios">
 <div class="relative flex items-center w-full h-full rounded-3xl overflow-hidden">
-  <!-- Imagen de fondo para desktop -->
   <div
       class="absolute inset-0 hidden lg:block bg-cover bg-center bg-no-repeat"
       style="background-image: url('/banner1.webp');"
   ></div>
 
-  <!-- Imagen de fondo para mobile -->
   <div
       class="absolute inset-0 lg:hidden bg-cover bg-center bg-no-repeat"
       style="background-image: url('/banner2.webp');"
   ></div>
 
-  <!-- Overlay para mejorar la legibilidad del texto -->
   <div class="absolute inset-0 bg-black opacity-50"></div>
 
   <div
@@ -82,7 +79,6 @@ const { title, description, align = 'left' } = Astro.props
 </style>
 
 <script>
-  // Esperar a que el DOM esté completamente cargado
   document.addEventListener('DOMContentLoaded', () => {
     const section = document.querySelector('#servicios');
 
