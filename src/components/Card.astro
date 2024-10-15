@@ -12,7 +12,7 @@ const { title, description, backgroundImage, link } = Astro.props
 
 <a href={link} class="block h-96 group">
     <article
-            class="flex flex-col gap-4 h-full rounded-3xl p-8 relative overflow-hidden transition-all duration-300 touch-manipulation"
+            class="flex flex-col gap-4 h-full rounded-3xl p-8 relative overflow-hidden transition-all duration-300 touch-manipulation hover:scale-105"
             style={`background-image: url('${backgroundImage}'); background-size: cover; background-position: center;`}
     >
         <div class="absolute inset-0 bg-black opacity-20 transition-opacity duration-300 group-hover:opacity-70 group-focus:opacity-50"></div>
