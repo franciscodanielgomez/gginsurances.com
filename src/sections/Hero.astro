@@ -11,8 +11,7 @@ const { title, description, align = 'left' } = Astro.props
 ---
 
 <section
-    class="relative h-svh text-neutral-700 px-4 pt-24 pb-8 md:px-8 overflow-hidden section-enter"
-    id="servicios">
+    class="relative h-svh text-neutral-700 px-4 pt-24 pb-8 md:px-8 overflow-hidden section-enter" id="hero">
   <div class="relative flex items-center w-full h-full rounded-3xl overflow-hidden">
     <div
         class="absolute inset-0 hidden lg:block bg-cover bg-center bg-no-repeat"
@@ -79,7 +78,7 @@ const { title, description, align = 'left' } = Astro.props
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const section = document.querySelector('#servicios');
+    const section = document.querySelector('#hero');
 
     if (section) { // Asegúrate de que la sección no sea null
       const observer = new IntersectionObserver((entries) => {
