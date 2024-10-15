@@ -14,13 +14,13 @@ import {Button} from 'free-astro-components'
         </div>
 
         <!-- Nav enlaces centrados -->
-        <nav class="flex-grow flex justify-center">
+        <nav class="flex-grow flex justify-center" data-nav>
             <ul class="hidden lg:flex items-center gap-8">
                 <li>
                     <a class="hover:text-primary transition duration-300 ease-in-out nav-link" href="#servicios">Servicios</a>
                 </li>
                 <li>
-                    <a class=" hover:text-primary transition duration-300 ease-in-out nav-link" href="#about">Nosotros</a>
+                    <a class="hover:text-primary transition duration-300 ease-in-out nav-link" href="#about">Nosotros</a>
                 </li>
                 <li>
                     <a class="hover:text-primary transition duration-300 ease-in-out nav-link" href="#testimonials">Testimonios</a>
@@ -29,7 +29,7 @@ import {Button} from 'free-astro-components'
                     <a class="hover:text-primary transition duration-300 ease-in-out nav-link" href="#faq">Preguntas Frecuentes</a>
                 </li>
                 <li>
-                    <a class=" hover:text-primary transition duration-300 ease-in-out nav-link" href="#contacto">Contacto</a>
+                    <a class="hover:text-primary transition duration-300 ease-in-out nav-link" href="#contacto">Contacto</a>
                 </li>
             </ul>
         </nav>
@@ -80,17 +80,29 @@ import {Button} from 'free-astro-components'
 
         // Función para manejar el cierre del sidebar
         const closeSidebar = () => {
-            hamburguer.removeAttribute('open')
-            nav.removeAttribute('open')
-            body.classList.remove('overflow-hidden')
+            if (hamburguer) {
+                hamburguer.removeAttribute('open')
+            }
+            if (nav) {
+                nav.removeAttribute('open')
+            }
+            if (body) {
+                body.classList.remove('overflow-hidden')
+            }
         }
 
         // Evento para abrir/cerrar el sidebar
-        hamburguer?.addEventListener('click', () => {
-            hamburguer.toggleAttribute('open')
-            nav?.toggleAttribute('open')
-            body?.classList.toggle('overflow-hidden')
-        })
+        if (hamburguer) {
+            hamburguer.addEventListener('click', () => {
+                hamburguer.toggleAttribute('open')
+                if (nav) {
+                    nav.toggleAttribute('open')
+                }
+                if (body) {
+                    body.classList.toggle('overflow-hidden')
+                }
+            })
+        }
 
         // Manejar clic en los enlaces de navegación
         navLinks.forEach(link => {
