@@ -68,16 +68,16 @@ const { title, description, align = 'left' } = Astro.props
 </section>
 
 <style is:global>
-  /* Estilos para la animación de entrada */
+
   .section-enter {
-    opacity: 0; /* Comienza invisible */
-    transform: translateY(20px); /* Desplazamiento hacia abajo */
+    opacity: 0;
+    transform: translateY(20px);
   }
 
   .section-enter-active {
-    opacity: 1; /* Aparece completamente */
-    transform: translateY(0); /* Regresa a su posición original */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Transición suave */
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
 </style>
 
@@ -89,15 +89,14 @@ const { title, description, align = 'left' } = Astro.props
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Agregar clase de animación
+
           section.classList.add('section-enter-active');
-          // Dejar de observar una vez que se ha activado la animación
+
           observer.unobserve(section);
         }
       });
     });
 
-    // Comienza a observar la sección
     observer.observe(section);
   });
 </script>
