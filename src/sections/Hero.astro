@@ -13,59 +13,58 @@ const { title, description, align = 'left' } = Astro.props
 <section
     class="relative h-svh text-neutral-700 px-4 pt-24 pb-8 md:px-8 overflow-hidden section-enter"
     id="servicios">
-<div class="relative flex items-center w-full h-full rounded-3xl overflow-hidden">
-  <div
-      class="absolute inset-0 hidden lg:block bg-cover bg-center bg-no-repeat"
-      style="background-image: url('/banner1.webp');"
-  ></div>
+  <div class="relative flex items-center w-full h-full rounded-3xl overflow-hidden">
+    <div
+        class="absolute inset-0 hidden lg:block bg-cover bg-center bg-no-repeat"
+        style="background-image: url('/banner1.webp');"
+    ></div>
 
-  <div
-      class="absolute inset-0 lg:hidden bg-cover bg-center bg-no-repeat"
-      style="background-image: url('/banner2.webp');"
-  ></div>
+    <div
+        class="absolute inset-0 lg:hidden bg-cover bg-center bg-no-repeat"
+        style="background-image: url('/banner2.webp');"
+    ></div>
 
-  <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="absolute inset-0 bg-black opacity-50"></div>
 
-  <div
-      class:list={[
-        'relative container flex flex-col gap-16',
-        align === 'center' ? 'text-center' : '',
-      ]}
-  >
-    <div class="flex flex-col gap-8">
-      {
-          title && (
-              <h1
-                  class:list={[
-                    'text-[8vw] sm:text-[7.5vw] md:text-[7vw] lg:text-[6vw] xl:text-[5vw] leading-none [&>strong]:font-medium text-white',
-                    align === 'center' ? 'mx-auto' : '',
-                  ]}
-                  set:html={title}
-              />
-          )
-      }
-      {
-          description && (
-              <p
-                  class:list={[
-                    'text-neutral-200 lg:text-lg text-white',
-                    align === 'center' ? 'mx-auto' : '',
-                  ]}
-                  set:html={description}
-              />
-          )
-      }
-      <a href="#servicios"
-         class="bg-primary text-white py-3 px-6 rounded-lg hover:bg-primary-dark transition-transform duration-300 transform hover:scale-105 w-auto self-start">
-        Servicios
-      </a>
+    <div
+        class:list={[
+          'relative container flex flex-col gap-16',
+          align === 'center' ? 'text-center' : '',
+        ]}
+    >
+      <div class="flex flex-col gap-8">
+        {
+            title && (
+                <h1
+                    class:list={[
+                      'text-[8vw] sm:text-[7.5vw] md:text-[7vw] lg:text-[6vw] xl:text-[5vw] leading-none [&>strong]:font-medium text-white',
+                      align === 'center' ? 'mx-auto' : '',
+                    ]}
+                    set:html={title}
+                />
+            )
+        }
+        {
+            description && (
+                <p
+                    class:list={[
+                      'text-neutral-200 lg:text-lg text-white',
+                      align === 'center' ? 'mx-auto' : '',
+                    ]}
+                    set:html={description}
+                />
+            )
+        }
+        <a href="#servicios"
+           class="bg-primary text-white py-3 px-6 rounded-lg hover:bg-primary-dark transition-transform duration-300 transform hover:scale-105 w-auto self-start">
+          Servicios
+        </a>
+      </div>
     </div>
   </div>
-</div>
 </section>
 
 <style is:global>
-
   .section-enter {
     opacity: 0;
     transform: translateY(20px);
@@ -82,17 +81,17 @@ const { title, description, align = 'left' } = Astro.props
   document.addEventListener('DOMContentLoaded', () => {
     const section = document.querySelector('#servicios');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-
-          section.classList.add('section-enter-active');
-
-          observer.unobserve(section);
-        }
+    if (section) { // Asegúrate de que la sección no sea null
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            section.classList.add('section-enter-active');
+            observer.unobserve(section);
+          }
+        });
       });
-    });
 
-    observer.observe(section);
+      observer.observe(section);
+    }
   });
 </script>
