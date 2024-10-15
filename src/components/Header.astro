@@ -69,9 +69,8 @@ import {Button} from 'free-astro-components'
     }
 </style>
 
-
 <script>
-    import {DOMLoaded} from '../ts/utils'
+    import { DOMLoaded } from '../ts/utils'
 
     DOMLoaded(() => {
         const body = document.querySelector('body')
@@ -79,34 +78,41 @@ import {Button} from 'free-astro-components'
         const nav = document.querySelector('[data-nav]')
         const navLinks = document.querySelectorAll('.nav-link')
 
+        // Función para manejar el cierre del sidebar
+        const closeSidebar = () => {
+            hamburguer.removeAttribute('open')
+            nav.removeAttribute('open')
+            body.classList.remove('overflow-hidden')
+        }
+
+        // Evento para abrir/cerrar el sidebar
         hamburguer?.addEventListener('click', () => {
             hamburguer.toggleAttribute('open')
             nav?.toggleAttribute('open')
             body?.classList.toggle('overflow-hidden')
         })
 
+        // Manejar clic en los enlaces de navegación
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault()
+                e.preventDefault() // Evitar el comportamiento por defecto del enlace
                 const href = link.getAttribute('href')
 
-                if (nav?.hasAttribute('open')) {
-                    hamburguer?.removeAttribute('open')
-                    nav?.removeAttribute('open')
-                    body?.classList.remove('overflow-hidden')
-                }
+                // Cerrar el sidebar
+                closeSidebar()
 
-                if (href) {
-                    const targetId = href.slice(1)
-                    const targetElement = document.getElementById(targetId)
-                    if (targetElement) {
-                        setTimeout(() => {
-                            targetElement.scrollIntoView({behavior: 'smooth'})
-                        }, 100)
-                    } else {
-                        window.location.href = href
+                // Esperar un poco antes de desplazarse
+                setTimeout(() => {
+                    if (href) {
+                        const targetId = href.slice(1)
+                        const targetElement = document.getElementById(targetId)
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' })
+                        } else {
+                            window.location.href = href
+                        }
                     }
-                }
+                }, 100) // Ajusta este tiempo si es necesario
             })
         })
     })

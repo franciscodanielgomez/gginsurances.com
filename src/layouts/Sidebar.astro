@@ -22,12 +22,14 @@ const { class: className } = Astro.props
 
         <h4 class="text-primary text-lg font-semibold">Menú</h4>
       <br>
-    <Nav>
-      <NavLink href="https://gginsurances.com/#servicios" label="Servicios" />
-      <NavLink href="https://gginsurances.com/#about" label="Nosotros" />
-      <NavLink href="https://gginsurances.com/#testimonials" label="Testimonios" />
-      <NavLink href="https://gginsurances.com/#faq" label="Preguntas Frecuentes" />
-    </Nav>
+        <nav data-nav>
+            <Nav>
+                <NavLink href="#servicios" label="Servicios" class="nav-link" />
+                <NavLink href="#about" label="Nosotros" class="nav-link" />
+                <NavLink href="#testimonials" label="Testimonios" class="nav-link" />
+                <NavLink href="#faq" label="Preguntas Frecuentes" class="nav-link" />
+            </Nav>
+        </nav>
       <br>
         <br>
       <div class="flex flex-col gap-6">
